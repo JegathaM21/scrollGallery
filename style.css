@@ -1,51 +1,83 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
 }
-body{
-    background: #ecf4fb
-}
-.img-gallery{
-    width: 80%;
-    margin:100px auto 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    grid-gap: 30px;
-}
-.img-gallery img{
-    width: 100%;
-    cursor: pointer;
-    transition: 0.4s;
-}
-
-.img-gallery img:hover{
-    transform: scale(0.8) rotate(-15deg);
-    border-radius: 20px;
-    box-shadow: 0 32px 75px rgba(66,77,136,0.2);
-}
-
-.full-img{
-    width: 100%;
-    height: 100vh;
-    background: rgba(0,0,0,0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    align-items: center;
+body {
+	background-image: url(https://4kwallpapers.com/images/walls/thumbs_3t/8324.png);
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
     justify-content: center;
+	text-align: center;
+	height: 100vh;
 }
-.full-img img{
-    width: 90%;
-    max-width: 500px;
+.image-container {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	transform-style: preserve-3d;
+	transform: perspective(1000px) rotateX(0deg) ;
+    transition: transform 1.5s;
+	& span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		transform: rotateX(calc(var(--a) * 45deg)) translateZ(400px);
+        & img{
+            position: absolute;
+            border-radius: 10px;
+            left:0;
+            top:0;
+            width: 100%;
+            transition: .5s;
+            &:hover{
+                transform: scale(2.5);
+            }
+        }
+	}
 }
-.full-img span{
+
+.btn-container{
+    position: relative;
+    width: 80%;
+    & .btn {
+        position: absolute;
+        bottom:-80px;
+        background-color:gold;
+        color:black;
+        border:1px solid black;
+        box-shadow:0 4px 8px rgba(0, 0, 0, 0.495) ;
+        font-weight: bold;
+        padding:10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: capitalize;
+        transition: 0.7s;
+        &:hover{
+            filter: brightness(1.5);
+            transform: translateX(-2px);
+        }
+    }
+}
+#prev {
+    left: 30%;
+}
+#next{
+    right: 30%;
+}
+.maker{
     position: absolute;
-    top: 5%;
-    right: 5%;
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
+    bottom: 5px;
+    color: rgb(189, 175, 175);
+    font-size: 20px;
+    font-family: cursive;
+    text-transform:capitalize;
+    font-weight: bold;
+    & bre{
+        font-size: 15px;
+    }
 
 }
